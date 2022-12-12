@@ -34,6 +34,7 @@ addr.mumbai = {
 };
 addr["arbitrum-goerli"] = {
     "start": 2001,
+    "end": 3000,
     "manager": "0x4926a10788306D84202A2aDbd290b7743146Cc17",
     "gas": "0x679Dc08cC3A4acFeea2f7CAFAa37561aE0b41Ce7",
     "domain": 421613
