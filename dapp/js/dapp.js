@@ -1,5 +1,5 @@
 const zeroAddress = "0x0000000000000000000000000000000000000000";
-const nftAddress = "0x08f776F62B66d2D0e265A532d37AF77782859133"; // all chains
+const nftAddress = "0x4674312E6c202662F78E72dF039e16f3AAB2ec3a"; // all chains
 
 var addr = {};
 
@@ -273,7 +273,7 @@ async function jump(tokenId, deliveryChain) {
     console.log(deliveryChain, addr[deliveryChain].domain);
     const fee = [0]; // TODO: fee estimate
     console.log("estFee", fee[0]);
-    const tx = await hyper.connect(ethersSigner).evmSend(addr[deliveryChain].domain, accounts[0], tokenId, {"value": ''+fee[0]});
+    const tx = await hyper.connect(ethersSigner).evmSend(addr[deliveryChain].domain, tokenId, {"value": ''+fee[0]});
     let burnFilter = hyper.filters.Transfer(accounts[0], zeroAddress);
     hyper.once(burnFilter, async (from, to, id, event) => { 
         tokenId = id;

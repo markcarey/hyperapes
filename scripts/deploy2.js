@@ -1,6 +1,9 @@
 const cdaABI = [{"inputs":[],"name":"EmptyBytecode","type":"error"},{"inputs":[],"name":"FailedDeploy","type":"error"},{"inputs":[],"name":"FailedInit","type":"error"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"bytecodeHash","type":"bytes32"},{"indexed":true,"internalType":"bytes32","name":"salt","type":"bytes32"},{"indexed":true,"internalType":"address","name":"deployedAddress","type":"address"}],"name":"Deployed","type":"event"},{"inputs":[{"internalType":"bytes","name":"bytecode","type":"bytes"},{"internalType":"bytes32","name":"salt","type":"bytes32"}],"name":"deploy","outputs":[{"internalType":"address","name":"deployedAddress_","type":"address"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bytes","name":"bytecode","type":"bytes"},{"internalType":"bytes32","name":"salt","type":"bytes32"},{"internalType":"bytes","name":"init","type":"bytes"}],"name":"deployAndInit","outputs":[{"internalType":"address","name":"deployedAddress_","type":"address"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bytes","name":"bytecode","type":"bytes"},{"internalType":"address","name":"sender","type":"address"},{"internalType":"bytes32","name":"salt","type":"bytes32"}],"name":"deployedAddress","outputs":[{"internalType":"address","name":"deployedAddress_","type":"address"}],"stateMutability":"view","type":"function"}];
 const cdaAddress = '0x98B2920D53612483F91F12Ed7754E51b4A77919e';
 
+const zeroAddress = "0x0000000000000000000000000000000000000000";
+const chain = hre.network.name;
+
 const nftJSON = require("../artifacts/contracts/HyperNFT.sol/HyperNFT.json");
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 const PUBLIC_KEY = process.env.PUBLIC_KEY;
@@ -9,14 +12,19 @@ const signer = new ethers.Wallet(PRIVATE_KEY, ethers.provider);
 const v = "one";
 const salt = ethers.utils.formatBytes32String(v);
 
-const ABI = ["function initialize(string memory _name, string memory _symbol, address _connectionManager, address _interchainGasPaymaster, uint _startMintId, uint _endMintId, address sender, uint32[] memory remoteDomains, string memory _contractURIHash)"];
+const ABI = ["function initialize(string memory _name, string memory _symbol, address _connectionManager, address _interchainGasPaymaster, uint _startMintId, uint _endMintId, address sender, uint32[] memory remoteDomains, string memory _contractURIHash, address _streamer, uint32 _streamDomain)"];
 const iface = new ethers.utils.Interface(ABI);
 
 const name = "Hyper Apes";
 const symbol = "hAPE";
 const contractHash = "QmaQhe8igCrPrq3obupKfVxpaguZyTEZvzgJp37DaJP3Nj";
-
-const chain = hre.network.name;
+var streamer = zeroAddress;
+var streamDomain = 0;
+if (chain == "mumbai") {
+    streamer = "0x3f900c008729BA1CAa5De3e25a77b2aa1475c121";
+} else {
+    streamDomain = 80001;
+}
 var addr = {};
 addr.goerli = {
     "start": 1,
@@ -48,6 +56,7 @@ addr["moonbeam-alpha"] = {
 };
 const targetChains = [ "goerli", "moonbeam-alpha", "mumbai", "arbitrum-goerli" ];
 var chainDomains = [];
+
 for (let i = 0; i < targetChains.length; i++) {
     var thisChain = targetChains[i];
     if ( thisChain == chain ) {
@@ -57,7 +66,7 @@ for (let i = 0; i < targetChains.length; i++) {
     }
 }
 console.log(chainDomains);
-const init = iface.encodeFunctionData("initialize", [ name, symbol, addr[chain].manager, addr[chain].gas, addr[chain].start, addr[chain].end, PUBLIC_KEY, chainDomains, contractHash ]);
+const init = iface.encodeFunctionData("initialize", [ name, symbol, addr[chain].manager, addr[chain].gas, addr[chain].start, addr[chain].end, PUBLIC_KEY, chainDomains, contractHash, streamer, streamDomain ]);
 
 
 async function main() {

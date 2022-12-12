@@ -417,11 +417,6 @@ const nftABI = [
         "type": "uint32"
       },
       {
-        "internalType": "address",
-        "name": "_to",
-        "type": "address"
-      },
-      {
         "internalType": "uint256",
         "name": "_tokenId",
         "type": "uint256"
@@ -581,6 +576,16 @@ const nftABI = [
         "internalType": "string",
         "name": "_contractURIHash",
         "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "_streamer",
+        "type": "address"
+      },
+      {
+        "internalType": "uint32",
+        "name": "_streamDomain",
+        "type": "uint32"
       }
     ],
     "name": "initialize",
@@ -667,6 +672,19 @@ const nftABI = [
     "name": "mintAndSend",
     "outputs": [],
     "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "uri",
+        "type": "string"
+      }
+    ],
+    "name": "mintWithPass",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
