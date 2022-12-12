@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="images/favicon.png" rel="icon" />
+  <base href='/'>
+  <title>Hyper Apes</title>
+  <meta name="description" content="Hyper Apes are AI-generated apes that swing between blockchains">
+
+  <!-- Web Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet
+  ============================== -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css" />
+  <!-- Font Awesome Icon -->
+  <link rel="stylesheet" type="text/css" href="vendor/font-awesome/css/all.min.css" />
+  <!-- Owl Carousel -->
+  <link rel="stylesheet" type="text/css" href="vendor/owl.carousel/assets/owl.carousel.min.css" />
+  <!-- Template Stylesheet -->
+  <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+  <link rel="stylesheet" type="text/css" href="css/color-blue.css" />
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#header-nav" data-bs-smooth-scroll="true" data-bs-offset="0" class="hero-bg" style="background-image:url('images/bg.png');">
+
+<!-- Preloader -->
+<div class="preloader preloader-dark">
+  <div class="lds-ellipsis">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+<!-- Preloader End --> 
+
+<!-- Document Wrapper
+=============================== -->
+<div id="main-wrapper"> 
+  
+  <!-- Header
+  ============================ -->
+  <header id="header" class="sticky-top-slide"> 
+    <!-- Navbar -->
+    <nav class="primary-menu navbar navbar-expand-lg navbar-dark bg-transparent fw-500">
+      <div class="container position-relative">
+        <div class="col-auto col-lg-auto"> 
+          <!-- Logo --> 
+          <a class="logo" href="/" title="Hyper Apes"> <img src="images/logo.png" alt="Hyper Apes"/> </a> 
+          <!-- Logo End --> 
+        </div>
+        <div class="col col-lg-10 navbar-accordion">
+          <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#header-nav"><span></span><span></span><span></span></button>
+          <div id="header-nav" class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="#mint-section">Mint</a></li>
+              <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+              <li class="align-items-center h-auto mt-2 mt-lg-0 ms-lg-2"><a id="connect-button" class="btn btn-primary rounded-pill d-inline-block" data-bs-toggle="offcanvas" href="#offcanvas" role="button" aria-controls="offcanvas"><span class="me-1"><i class="fas fa-wallet"></i></span> <span class="address">Connect</span></a></li>
+              <li class="align-items-center h-auto mt-2 mt-lg-0 ms-lg-3"><a class="btn btn-light rounded-pill d-inline-block" href="https://discord.gg/2RM4KacbTH"><span class="me-1"><i class="fab fa-discord"></i></span> Discord</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar End --> 
+  </header>
+  <!-- Header End --> 
+  
+  <!-- Connect Wallet - Offcanvas menu
+====================================== -->
+  <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+    <div class="offcanvas-header">
+      <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <h4 class="text-white fw-600 text-center mb-4" id="offcanvasLabel"><span class="me-1"><i class="fas fa-wallet"></i></span> Connect Wallet</h4>
+      <div class="text-white-50 text-center mb-4">Choose how you want to connect. There are several wallet providers.</div>
+      <div class="list-group connect-wallet"> <a href="#" class="list-group-item list-group-item-action connect" aria-current="true"> <img class="img-fluid d-flex me-2 connect" src="images/wallet/metamask.png" alt=""> MetaMask</a> <a href="#" class="list-group-item list-group-item-action" aria-current="true"> <img class="img-fluid d-flex me-2" src="images/wallet/wallet-connect.png" alt=""> Wallet Connect <span class="badge bg-info ms-auto">Coming Soon</span> </a>  </div>
+    </div>
+  </div>
+  <!-- Connect Wallet - Offcanvas menu End --> 
+  
+  <!-- Content
+  ======================== -->
+  <div id="content" role="main"> 
+    
+    <!-- Intro
+    ========================= -->
+    <section id="home">
+      <div class="hero-wrap">
+        <div class="hero-content section pb-0 d-flex min-vh-100">
+          <div class="container py-5 my-auto">
+            <div class="row gy-5 g-lg-4">
+              <div class="col-md-6 my-auto text-center text-md-start pt-5 pt-md-0 order-2 order-md-1">
+                <h1 class="text-17 fw-600 text-white">Hyper Apes</h1>
+                <p class="text-4 text-light mb-4">Hyper Apes are NFTs generated by AI that swing between blockchains. Never bored. Powered by DALL-E and Hyperlane.</p>
+                <a href="#mint" class="btn btn-primary rounded-pill">Mint Now <span class="text-2 ms-2"><i class="fa fa-chevron-right"></i></span></a> </div>
+              <div class="col-md-6 pb-5 pb-md-0 order-1 order-md-2"> 
+                <!-- Parallax Mouse Move -->
+                <div id="scene" data-relative-input="true" class="scene">
+                  <div data-depth="0.6" class="ms-5 mt-md-n5"><img class="img-fluid rounded-4 shadow-lg" src="images/collections/hyper1.png" alt=""></div>
+                  <div data-depth="0.3" class="top-50 start-0 ms-n3 mt-md-5"><img class="img-fluid rounded-4 shadow-lg" src="images/collections/hyper8.png" alt=""></div>
+                  <div data-depth="0.4" class="top-50 start-50 mt-n4"><img class="img-fluid rounded-4 shadow-lg" src="images/collections/hyper6.png" alt=""></div>
+                </div>
+                <!-- Parallax Mouse Move End --> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Intro end --> 
+    
+    <!-- Number -->
+    <div class="mt-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-6 col-lg-3">
+            <div class="hero-wrap py-3">
+              <div class="hero-mask rounded-4 opacity-7 bg-dark"></div>
+              <div class="hero-content text-center py-4 px-3">
+                <h4 class="text-11 text-white fw-600 mb-0">4000</h4>
+                <div class="text-4 text-light">Total Items</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="hero-wrap py-3">
+              <div class="hero-mask rounded-4 opacity-7 bg-dark"></div>
+              <div class="hero-content text-center py-4 px-3">
+                <h4 class="text-11 text-white fw-600 mb-0" id="total-owners">TBD</h4>
+                <div class="text-4 text-light">Total Owners</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="hero-wrap py-3">
+              <div class="hero-mask rounded-4 opacity-7 bg-dark"></div>
+              <div class="hero-content text-center py-4 px-3">
+                <h4 class="text-11 text-white fw-600 mb-0">0.00</h4>
+                <div class="text-4 text-light">Floor Price (ETH)</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="hero-wrap py-3">
+              <div class="hero-mask rounded-4 opacity-7 bg-dark"></div>
+              <div class="hero-content text-center py-4 px-3">
+                <h4 class="text-11 text-white fw-600 mb-0">TBD</h4>
+                <div class="text-4 text-light">Volume Traded</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Number end --> 
+    
+    <!-- About
+    ========================== -->
+    <section id="about" class="section">
+      <div class="container"> 
+        <!-- Heading -->
+        <div class="position-relative d-flex text-center mb-5">
+          <h2 class="text-24 text-white-50 opacity-1 text-uppercase fw-600 w-100 mb-0">About Us</h2>
+          <p class="text-9 text-white fw-600 position-absolute w-100 align-self-center lh-base mb-0">Our Story<span class="heading-separator-line border-bottom border-3 border-primary d-block mx-auto"></span> </p>
+        </div>
+        <!-- Heading end-->
+        
+        <div class="row">
+          <div class="col-lg-6 position-relative">
+            <div class="about-img">
+              <div class="img-1"><img class="img-fluid rounded-4 shadow-lg" src="images/collections/hyper4.png" alt=""></div>
+              <div class="img-2"><img class="img-fluid rounded-4 shadow-lg" src="images/collections/hyper9.png" alt=""></div>
+            </div>
+          </div>
+          <div class="col-lg-6 text-center text-lg-start">
+            <h2 class="text-12 text-white fw-600 mb-3">Welcome to Multi-chain world of Hyper Apes.</h2>
+            <p class="text-5 text-white">Hyper Apes are created by AI, and born on different blockchain networks. Like all primates, they can swing. Swing from one blockchain to another. And then back again.</p>
+            <p class="text-light">Choose a color and an accessory and let the AI give birth to your very own Hyper Ape. Choose a blockchain as a birthplace, and deliver it to another, if desired.</p>
+            <a class="btn btn-primary rounded-pill mt-2" href="#mint">Mint Now <span class="text-2 ms-2"><i class="fa fa-chevron-right"></i></span></a>  <a class="btn btn-primary rounded-pill mt-2" href="https://discord.gg/2RM4KacbTH">Join Our Discord <span class="text-2 ms-2"><i class="fa fa-chevron-right"></i></span></a></div>
+        </div>
+      </div>
+    </section>
+    <!-- About end --> 
+    
+    <!-- Collections
+    ============================= -->
+    <section id="collections" class="section">
+      <div class="container"> 
+        <!-- Heading -->
+        <div class="position-relative d-flex text-center mb-5">
+          <h2 class="text-24 text-white-50 opacity-1 text-uppercase fw-600 w-100 mb-0">Examples</h2>
+          <p class="text-9 text-white fw-600 position-absolute w-100 align-self-center lh-base mb-0">Hyper Apes<span class="heading-separator-line border-bottom border-3 border-primary d-block mx-auto"></span> </p>
+        </div>
+        <!-- Heading end--> 
+      </div>
+      
+      <!-- Carousel -->
+      <div class="owl-carousel owl-theme" data-loop="true" data-dots="false" data-nav="false" data-autoplay="true" data-autoplaytimeout="3000" data-smartspeed="3000" data-slidetransition="linear" data-center="true" data-margin="25" data-stagepadding="0" data-slideby="1" data-items-xs="3" data-items-sm="4" data-items-md="4" data-items-lg="5">
+        <div class="item"> <img class="img-fluid rounded-4" src="images/collections/hyper1.png" alt=""> </div>
+        <div class="item"> <img class="img-fluid rounded-4" src="images/collections/hyper5.png" alt=""> </div>
+        <div class="item"> <img class="img-fluid rounded-4" src="images/collections/hyper3.png" alt=""> </div>
+        <div class="item"> <img class="img-fluid rounded-4" src="images/collections/hyper6.png" alt=""> </div>
+        <div class="item"> <img class="img-fluid rounded-4" src="images/collections/hyper4.png" alt=""> </div>
+        <div class="item"> <img class="img-fluid rounded-4" src="images/collections/hyper2.png" alt=""> </div>
+      </div>
+      <!-- Carousel End --> 
+      
+      <!-- Carousel Reverse -->
+      <div class="owl-carousel owl-theme" data-rtl="true" data-loop="true" data-dots="false" data-nav="false" data-autoplay="true" data-autoplaytimeout="3000" data-smartspeed="3000" data-slidetransition="linear" data-center="true" data-margin="25" data-stagepadding="0" data-slideby="1" data-items-xs="3" data-items-sm="4" data-items-md="4" data-items-lg="5">
+        <div class="item"> <img class="img-fluid rounded-4" src="images/collections/hyper7.png" alt=""> </div>
+        <div class="item"> <img class="img-fluid rounded-4" src="images/collections/hyper8.png" alt=""> </div>
+        <div class="item"> <img class="img-fluid rounded-4" src="images/collections/hyper9.png" alt=""> </div>
+        <div class="item"> <img class="img-fluid rounded-4" src="images/collections/hyper10.png" alt=""> </div>
+        <div class="item"> <img class="img-fluid rounded-4" src="images/collections/hyper11.png" alt=""> </div>
+      </div>
+      <!-- Carousel Reverse End --> 
+      
+      <!-- Button -->
+      <div class="container text-center mt-5"> <a class="btn btn-primary rounded-pill mt-2" href="#mint">Mint Now <span class="text-2 ms-2"><i class="fa fa-chevron-right"></i></span></a> </div>
+      <!-- Button End--> 
+    </section>
+    <!-- Collections end --> 
+
+
+    <section id="mint-section" class="section">
+      <div class="container"> 
+        <!-- Heading -->
+        <div class="position-relative d-flex text-center mb-5">
+          <h2 class="text-24 text-white-50 opacity-1 text-uppercase fw-600 w-100 mb-0">Hyper Apes</h2>
+          <p class="text-9 text-white fw-600 position-absolute w-100 align-self-center lh-base mb-0">Mint<span class="heading-separator-line border-bottom border-3 border-primary d-block mx-auto"></span> </p>
+        </div>
+        <!-- Heading end--> 
+      </div>
+
+    <div id="mint" class="mt-5 pb-0">
+      <div class="container pt-5">
+        <div class="row g-5"> 
+          <!-- Item Image -->
+          <div class="col-lg-6 text-center"> <img id="mint-image" class="img-fluid rounded-5" src="images/mint.png" alt=""> </div>
+          <!-- Item Image end --> 
+          
+          <!-- Item Details -->
+          <div class="col-lg-6 text-center text-lg-start">
+            <h1 class="text-light text-5 mb-4">Hyper Ape #<span id="tokenid">?</span></h1>
+            <h2 class="text-10 text-white fw-600 mb-4"><span id="mint-title">Public Mint is </span><span id="mint-title-label" class="bg-success rounded-4 px-3">Live</span></h2>
+            
+            <!-- Birth Chain -->
+            <div class="mint-field row g-2 align-items-center justify-content-center justify-content-lg-start mb-4">
+              <div class="col-12 col-sm-auto text-light"> Mint on: </div>
+              <div class="col-auto col-sm-4">
+                <div class="input-group form-dark">
+                  <select name="chain" id="birth-chain" class="form-control text-center bg-trnsparent rounded-4">
+                    <option value="moonbeam-alpha">Moonbeam</option>
+                    <option value="goerli">Goerli</option>
+                    <option value="mumbai">Mumbai</option>
+                    <option value="arbitrum-goerli">Arbirum Goerli</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Color -->
+            <div class="mint-field row g-2 align-items-center justify-content-center justify-content-lg-start mb-4">
+              <div class="col-12 col-sm-auto text-light"> Color: </div>
+              <div class="col-auto col-sm-4">
+                <div class="input-group form-dark">
+                  <select name="chain" id="color" class="form-control text-center bg-trnsparent rounded-4">
+                    <option value="orange">Orange</option>
+                    <option value="grey">Grey</option>
+                    <option value="striped">Striped</option>
+                    <option value="white">White</option>
+                    <option value="black">Black</option>
+                    <option value="blue">Blue</option>
+                    <option value="pink">Pink</option>
+                    <option value="purple">Purple</option>
+                    <option value="hairy">Hairy</option>
+                    <option value="spotted">Spotted</option>
+                    <option value="brown">Brown</option>
+                    <option value="red">Red</option>
+                    <option value="lilac">Lilac</option>
+                    <option value="technicolor">Technicolor</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Wearing -->
+            <div class="mint-field row g-2 align-items-center justify-content-center justify-content-lg-start mb-4">
+              <div class="col-12 col-sm-auto text-light"> Wearing: </div>
+              <div class="col-auto col-sm-4">
+                <div class="input-group form-dark">
+                  <select name="wearing" id="wearing" class="form-control text-center bg-trnsparent rounded-4">
+                    <option value="hat">Hat</option>
+                    <option value="crown">Crown</option>
+                    <option value="sunglasses">Sunglasses</option>
+                    <option value="tiara">Tiara</option>
+                    <option value="toque">Toque</option>
+                    <option value="cap">Basebal Cap</option>
+                    <option value="fedora">Fedora</option>
+                    <option value="visor">Visor</option>
+                    <option value="eyeglasses">Eyeglasses</option>
+                    <option value="monocle">Monocle</option>
+                    <option value="eye patch">Eye Patch</option>
+                    <option value="top hat">Top Hat</option>
+                    <option value="wig">Wig</option>
+                    <option value="headphones">Headphones</option>
+                    <option value="hoodie">Hoodie</option>
+                    <option value="scarf">Scarf</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Delivery Chain -->
+            <div class="mint-field row g-2 align-items-center justify-content-center justify-content-lg-start mb-4">
+              <div class="col-12 col-sm-auto text-light"> Deliver to: </div>
+              <div class="col-auto col-sm-4">
+                <div class="input-group form-dark">
+                  <select name="chain" id="delivery-chain" class="form-control text-center bg-trnsparent rounded-4">
+                    <option value="moonbeam-alpha">Moonbeam</option>
+                    <option value="goerli">Goerli</option>
+                    <option value="mumbai">Mumbai</option>
+                    <option value="arbitrum-goerli">Arbirum Goerli</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Price -->
+            <div class="row justify-content-center justify-content-lg-start mb-4">
+              <div class="col-auto col-lg-6">
+                <p class="text-light mb-0">Price:</p>
+                <div class="text-7 text-white fw-600"><span id="fee">0.00</span> <span id="native-token">DEV</span></div>
+              </div>
+              <div class="col-auto col-lg-6">
+                <p class="text-light mb-0">Remaining on <span class="birth-chain-name">Moonbeam</span>:</p>
+                <div class="text-7 text-white fw-600"><span id="remaining">999</span>/1000</div>
+              </div>
+            </div>
+            
+            <!-- Button -->
+            <div class="d-grid">
+                <a class="btn btn-primary btn-lg rounded-pill" id="mint-button" href="#">Mint Now</a>
+                <a class="btn btn-primary btn-lg rounded-pill" style="margin-top: 10px; display: none;" id="jump-button" href="#">Swing</a>
+                <a class="btn btn-secondary btn-lg rounded-pill" style="margin-top: 10px; display:none;" id="reset-button" href="#"><span class="me-1"><i class="fas fa-redo"></i></span> Mint Another</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </section>
+
+
+
+
+    
+    <!-- FAQ
+    ============================ -->
+    <section id="faq" class="section">
+      <div class="container"> 
+        <!-- Heading -->
+        <div class="position-relative d-flex text-center mb-5">
+          <h2 class="text-24 text-white-50 opacity-1 text-uppercase fw-600 w-100 mb-0">Questions</h2>
+          <p class="text-9 text-white fw-600 position-absolute w-100 align-self-center lh-base mb-0">Frequently Asked Questions<span class="heading-separator-line border-bottom border-3 border-primary d-block mx-auto"></span> </p>
+        </div>
+        <!-- Heading end-->
+        <div class="row gy-5">
+          <div class="col-lg-6 order-1 order-lg-0"> 
+            <!-- Accordion Start -->
+            <div class="accordion accordion-flush accordion-dark" id="faqTopics">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">Who is the artist?</button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#faqTopics">
+                  <div class="accordion-body">
+                    <p class="mb-0">Hyper Apes are created by the DALL-E artificial intellegence. Your inputs help customize your ape.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">What is a cross-chain NFT?</button>
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#faqTopics">
+                  <div class="accordion-body">
+                    <p>Hyper Apes are crosschain NFTs. They can be minted on multiple blockchains and can swing between them.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">Where can I View My Hyper Apes?</button>
+                </h2>
+                <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#faqTopics">
+                  <div class="accordion-body">
+                    <p class="mb-0">Hyper Apes can be viewed on any NFT browser, wallet, or marketplace that supports the chain where your ape is currently residing.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingFour">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">Why does it cost more than gas to jump to another chain?</button>
+                </h2>
+                <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#faqTopics">
+                  <div class="accordion-body">
+                    <p class="mb-0">When Hyper Apes swing from one chain to another, it actually takes two transactions: 1) to start the swing from the source chain, and 2) to complete the swing on the destination chain. For #1, you pay gas in the normal way. But you also have to send along some native tokens (ie. ETH) to cover the gas of the second transaction, the completion of the swing on the destination chain.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingFourPlus">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFourPlus" aria-expanded="false" aria-controls="flush-collapseFourPlus">What about background colors?</button>
+                </h2>
+                <div id="flush-collapseFourPlus" class="accordion-collapse collapse" aria-labelledby="flush-headingFourPlus" data-bs-parent="#faqTopics">
+                  <div class="accordion-body">
+                    <p class="mb-0">Apes born on Ethereum Goerli have grey backgrounds. Apes born on Polygon Mumbai have purple backgrounds. Apes born on Moonbase Alpha have red backgrounds. Apes born on Arbitrum Goerli have blue backgrounds. That's just how Hyper Apes roll.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingFive">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">What chains are supported?</button>
+                </h2>
+                <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#faqTopics">
+                  <div class="accordion-body">
+                    <p class="mb-0">Currently on testnets only, you can mint and swing your Apes from Ethereum-Goerli, Polygon-Mumbai, Arbitrum-Goerli, and Moonbase-Alpha. When launched on mainnet, additional chains may be supported.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingSix">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">What license?</button>
+                </h2>
+                <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#faqTopics">
+                  <div class="accordion-body">
+                    <p class="mb-0">Your Hyper Ape is yours. Enjoy.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Accordion End --> 
+          </div>
+          <div class="col-lg-6 d-flex align-items-center justify-content-center order-0 order-lg-1"> <img class="img-fluid" src="images/faq.png" title="FAQ" alt="faq"> </div>
+        </div>
+      </div>
+    </section>
+    <!-- FAQ end --> 
+    
+    <!-- Join
+    ============================== -->
+    <section id="join" class="section pb-0">
+      <div class="container"> 
+        <!-- Heading -->
+        <div class="position-relative d-flex text-center">
+          <h2 class="text-24 text-white-50 opacity-1 text-uppercase fw-600 w-100 lh-1 mb-0 mb-n1">don’t miss</h2>
+        </div>
+        <!-- Heading end-->
+        
+        <div class="bg-primary text-center shadow-lg rounded-4 p-5 mt-n3">
+          <div class="text-15 text-white lh-1 mb-2"><i class="fab fa-discord"></i></div>
+          <h3 class="text-11 text-white fw-600 mb-3">Join Our Community</h3>
+          <a class="btn btn-light rounded-pill" href="https://discord.gg/2RM4KacbTH">Join Discord</a> </div>
+      </div>
+    </section>
+    <!-- Join end --> 
+    
+  </div>
+  <!-- Content end --> 
+  
+  <!-- Footer
+  ============================== -->
+  <footer id="footer" class="section footer-dark my-4">
+    <div class="container"> 
+      <!-- Social Icon -->
+      <ul class="social-icons social-icons-dark social-icons-lg justify-content-center mb-4">
+        <li class="social-icons-discord"><a data-bs-toggle="tooltip" href="https://discord.gg/2RM4KacbTH" target="_blank" title="Discord"><i class="fab fa-discord"></i></a></li>
+        <li class="social-icons-twitter"><a data-bs-toggle="tooltip" href="https://twitter.com/mthacks" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+      </ul>
+    </div>
+  </footer>
+  <!-- Footer end --> 
+  
+</div>
+<!-- Document Wrapper end --> 
+
+<!-- Back to Top
+============================== --> 
+<a id="back-to-top" data-bs-toggle="tooltip" title="Back to Top" href="javascript:void(0)"><i class="fa fa-chevron-up"></i></a> 
+
+<!-- JavaScript --> 
+<script src="vendor/jquery/jquery.min.js"></script> 
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
+<!-- Owl Carousel --> 
+<script src="vendor/owl.carousel/owl.carousel.min.js"></script> 
+<!-- Parallax Mouse Move --> 
+<script src="vendor/parallax/parallax.min.js"></script> 
+<!-- Custom Script --> 
+<script src="js/theme.js"></script>
+<script src="https://cdn.ethers.io/lib/ethers-5.1.umd.min.js" type="text/javascript"></script>  
+<script src="https://cdn.jsdelivr.net/npm/@alch/alchemy-web3@latest/dist/alchemyWeb3.min.js"></script>
+<script src="/js/abis.js?v=2"></script>
+<script src="/js/dapp.js?v=4"></script>
+</body>
+</html>

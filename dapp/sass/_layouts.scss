@@ -1,0 +1,294 @@
+/* =================================== */
+/*  3. Layouts
+/* =================================== */
+
+#content{overflow:hidden;}
+
+@include media-breakpoint-only(lg) {
+#main-wrapper {
+  &.boxed {
+    max-width: 990px;
+    margin: 0 auto;
+	@include box-shadow(0px 0px 10px rgba(0, 0, 0, 0.1));
+  }
+}
+}
+
+@include media-breakpoint-only(xl) {
+#main-wrapper {
+  &.boxed {
+    max-width: 1180px;
+    margin: 0 auto;
+	@include box-shadow(0px 0px 10px rgba(0, 0, 0, 0.1));
+  }
+}
+}
+
+@include media-breakpoint-only(xxl) {
+#main-wrapper {
+  &.boxed {
+    max-width: 1360px;
+    margin: 0 auto;
+	@include box-shadow(0px 0px 10px rgba(0, 0, 0, 0.1));
+  }
+}
+}
+
+.section {
+  position: relative;
+  padding: 4.5rem 0;
+}
+
+@include media-breakpoint-down(sm) {
+	.section {
+		padding: 3.5rem 0;
+	}
+}
+
+/*== Heading Separator Line ==*/
+.heading-separator-line{width:80px;}
+
+/*== Intro Parallax Mouse Move ==*/
+@include media-breakpoint-down(md) {
+	.scene:not(.alternate){min-height:400px;}
+}
+.scene:not(.alternate) > div{max-width:260px;}
+
+/*-- Alternate Style --*/
+.scene.alternate{
+	.layer-1{max-width:186px; left:calc(50% - 520px)!important; top:calc(50% - 93px)!important; z-index:1;}
+	.layer-2{max-width:236px; left:calc(50% - 355px)!important; top:calc(50% - 118px)!important;  z-index:2;}
+	.layer-3{max-width:290px; left:calc(50% - 145px)!important; z-index:5;}
+	.layer-4{max-width:236px; right:calc(50% - 355px)!important; top:calc(50% - 118px)!important; left:auto!important;  z-index:2;}
+	.layer-5{max-width:186px; right:calc(50% - 520px)!important; top:calc(50% - 93px)!important; left:auto!important;  z-index:1;}
+}
+@include media-breakpoint-down(xl) {
+	.scene.alternate{
+		.layer-1{max-width:156px; left:calc(50% - 450px)!important; top:calc(50% - 78px)!important;}
+		.layer-2{max-width:206px; left:calc(50% - 315px)!important; top:calc(50% - 103px)!important;}
+		.layer-3{max-width:260px; left:calc(50% - 130px)!important;}
+		.layer-4{max-width:206px; right:calc(50% - 315px)!important; top:calc(50% - 103px)!important;}
+		.layer-5{max-width:156px; right:calc(50% - 450px)!important; top:calc(50% - 78px)!important;}
+	}
+}
+@include media-breakpoint-down(lg) {
+	.scene.alternate{
+		.layer-1, .layer-5{
+			display:none!important;
+		}
+	}
+}
+@include media-breakpoint-down(md) {
+	.scene.alternate{
+		.layer-2{max-width:166px; left:calc(50% - 250px)!important; top:calc(50% - 83px)!important;}
+		.layer-3{max-width:220px; left:calc(50% - 110px)!important;}
+		.layer-4{max-width:166px; right:calc(50% - 250px)!important; top:calc(50% - 83px)!important;}
+	}
+}
+@include media-breakpoint-down(sm) {
+	.scene.alternate{
+		.layer-2{max-width:126px; left:calc(50% - 190px)!important; top:calc(50% - 63px)!important;}
+		.layer-3{max-width:180px; left:calc(50% - 90px)!important;}
+		.layer-4{max-width:126px; right:calc(50% - 190px)!important; top:calc(50% - 63px)!important;}
+	}
+}
+
+html[dir="rtl"]{
+	.scene.alternate{
+		.layer-3{right:calc(50% - 145px)!important; left:auto;}
+	}
+}
+@include media-breakpoint-down(xl) {
+	html[dir="rtl"] .scene.alternate{
+		.layer-3{right:calc(50% - 130px)!important; left:auto;}
+	}
+}
+
+@include media-breakpoint-down(md) {
+	html[dir="rtl"] .scene.alternate{
+		.layer-3{right:calc(50% - 110px)!important; left:auto;}
+	}
+}
+@include media-breakpoint-down(sm) {
+	html[dir="rtl"] .scene.alternate{
+		.layer-3{right:calc(50% - 90px)!important; left:auto;}
+	}
+}
+
+
+/*== About Us ==*/
+.about-img{
+	.img-1{
+		position:absolute;
+		width: 300px;
+		height:auto;
+		top: 50%;
+		left: 50%;
+		transform: translate(-60%,-50%) rotate(-15deg);
+		z-index: 0;
+	}
+	.img-2{
+		position:absolute;
+		width: 210px;
+		height:auto;
+		top: 50%;
+		left: 50%;
+		transform: translate(0%, -90%) rotate(10deg);
+		z-index: 1;
+	}
+}
+
+html[dir="rtl"] .about-img{
+	.img-1{
+		right: 50%;
+		left: auto;
+		transform: translate(60%,-50%) rotate(15deg);
+	}
+	.img-2{
+		left: auto;
+		right: 50%;
+		transform: translate(0%, -90%) rotate(-10deg);
+	}
+}
+
+@include media-breakpoint-only(md) {
+	.about-img{min-height:400px;}
+}
+@include media-breakpoint-down(md) {
+	.about-img{
+		min-height:300px;
+		.img-1{
+			width: 200px;
+		}
+		.img-2{
+			width: 160px;
+			transform: translate(-5%, -90%) rotate(10deg);
+		}
+	}
+	
+	html[dir="rtl"] .about-img{
+		.img-2{
+			transform: translate(5%, -90%) rotate(-10deg);
+		}
+	}
+}
+
+/*=== Roadmap ===*/
+.roadmap{
+	.step-pr{
+		position:relative;
+		background:rgba(0,0,0,0.3);
+		border-radius:50%;
+		width:150px;
+		height:150px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+@include media-breakpoint-up(md) {
+	.roadmap{
+		position:relative;
+		&:after{
+			content: "";
+			display: block;
+			height: 100%;
+			left: 50%;
+			margin-left: -2px;
+			position: absolute;
+			top:0px;
+			width:4px;
+			background:rgba(0,0,0,0.3);
+			z-index: 0;
+		}
+		.step-pr{
+				&:after{
+					position:absolute;
+					content:' ';
+					background:rgba(0,0,0,0.3);
+					height:4px;
+					width:3.15rem;
+					right:-3.15rem;
+				}
+				&:before{
+					position:absolute;
+					content:' ';
+					width:6px;
+					height:6px;
+					background:#e5e5e6;
+					@include box-shadow(0px 0px 0px 7px rgba(0, 0, 0, 0.3));
+					border-radius:50%;
+					right:-3.95rem;
+					z-index:1;
+				}
+			&.alternate{
+				&:after{
+					right:auto;
+					left:-3.15rem;
+				}
+				&:before{
+					right:auto;
+					left:-3.95rem;
+				}
+			}
+		}
+	}
+	html[dir="rtl"] .roadmap{
+		&:after{
+			left: auto;
+			right: 50%;
+			margin-left: 0px;
+			margin-right: -2px;
+		}
+		.step-pr{
+				&:after{
+					right:auto;
+					left:-3.15rem;
+				}
+				&:before{
+					right:auto;
+					left:-3.95rem;
+				}
+			&.alternate{
+				&:after{
+					right:-3.15rem;
+					left:auto;
+				}
+				&:before{
+					right:-3.95rem;
+					left:auto;
+				}
+			}
+		}
+	}
+}
+
+/* Countdown */
+.blink_me {
+  animation: blinker 1s ease-in-out 0s infinite normal none running;
+  margin:0 5px;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Connect Wallet */
+.connect-wallet.list-group{
+	.list-group-item{
+	background:transparent;
+	border-color:rgba(250,250,250,0.15);
+	color:$light;
+	align-items: center !important;
+	display: flex !important;
+		img{
+			width:50px;
+		}
+	}
+	.list-group-item-action:focus, .list-group-item-action:hover{
+	background:rgba(250,250,250,0.1);
+	border-color:rgba(250,250,250,0.05);
+	}
+}

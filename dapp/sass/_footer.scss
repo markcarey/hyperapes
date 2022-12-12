@@ -1,0 +1,346 @@
+/* =================================== */
+/*  5. Footer
+/* =================================== */
+
+/*=== 5.1 Footer ===*/
+#footer {
+  color: #252b33;
+  padding: 4.125rem 0;
+  .nav {
+    .nav-item {
+      display: inline-block;
+      line-height: 12px;
+      margin: 0;
+      .nav-link {
+        color: #252b33;
+		padding-left:0.60rem;
+		padding-right:0.60rem;
+        -webkit-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+        &:focus {
+          color: $primary-color;
+          -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+        }
+      }
+    }
+    .nav-link:hover {
+      color: $primary-color;
+      -webkit-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+    }
+  }
+  .footer-copyright {
+    border-top: 1px solid #e2e8ea;
+    padding: 0px 0px;
+    color: #67727c;
+    .nav {
+      .nav-item .nav-link {
+        color: #67727c;
+      }
+      .nav-link:hover {
+        color: $primary-color;
+        -webkit-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+      }
+    }
+  }
+  .nav.flex-column .nav-item {
+    padding: 0px;
+    .nav-link {
+      margin: 0.7rem 0px;
+    }
+  }
+  &.footer-dark {
+    color: rgba(250, 250, 250, 0.8);
+    .nav .nav-item .nav-link {
+      color: rgba(250, 250, 250, 0.8);
+      &:hover {
+        color: rgba(250, 250, 250, 1);
+      }
+    }
+    .footer-copyright {
+      border-color: rgba(250, 250, 250, 0.15);
+      color: rgba(250, 250, 250, 0.5);
+    }
+    &:not(.bg-primary) .social-icons-light.social-icons li a {
+      color: rgba(250, 250, 250, 0.8);
+      &:hover {
+        color: rgba(250, 250, 250, 1);
+      }
+    }
+    &.bg-primary {
+      color: #fff;
+      .nav .nav-item .nav-link {
+        color: #fff;
+        &:hover {
+          color: rgba(250, 250, 250, 0.7);
+        }
+      }
+      .footer-copyright {
+        border-color: rgba(250, 250, 250, 0.15);
+        color: rgba(250, 250, 250, 0.9);
+      }
+      :not(.social-icons) a {
+        color: #fff;
+        &:hover {
+          color: rgba(250, 250, 250, 0.7);
+        }
+      }
+    }
+  }
+}
+
+html:not([dir="rtl"]) #footer {
+  .nav {
+    .nav-item {
+	  &:first-child .nav-link {
+        padding-left: 0px;
+      }
+      &:last-child .nav-link{
+        padding-right: 0px;
+      }
+    }
+  }
+}
+html[dir="rtl"] #footer {
+  .nav {
+    .nav-item {
+	  &:first-child .nav-link {
+        padding-right: 0px;
+      }
+      &:last-child .nav-link{
+        padding-left: 0px;
+      }
+    }
+  }
+}
+
+/*=== 5.2 Social Icons ===*/
+.social-icons {
+  margin: 0;
+  padding: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  list-style: none;
+  li {
+    margin: 2px 4px;
+    padding: 0;
+    border-radius: 100%;
+    overflow: visible;
+    a {
+      background: rgba(0,0,0,0.1);
+      border-radius: 100%;
+      display: block;
+      height: 36px;
+      line-height: 36px;
+      width: 36px;
+      font-size: 16px;
+      text-align: center;
+      color: #4c4d4d;
+      text-decoration: none;
+	  @include transition(all 0.2s ease);
+    }
+    i {
+      line-height: inherit;
+    }
+  }
+  &.social-icons-sm li a {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+  }
+  &.social-icons-lg li{
+	margin: 2px 8px;
+	  a {
+		width: 48px;
+		height: 48px;
+		line-height: 48px;
+		font-size: 18px;
+	  }
+	}
+  &.social-icons-dark li a {
+    background: #5f6267;
+	color:#fff;
+  }
+  li:hover {
+    a {
+      background: #171717;
+      color: #fff;
+	  @include transition(all 0.2s ease);
+    }
+  }
+  li:hover.social-icons-twitter a, &.social-icons-colored li.social-icons-twitter a {
+    background: $twitter;
+	color: #fff;
+  }
+  li:hover.social-icons-facebook a, &.social-icons-colored li.social-icons-facebook a {
+    background: $facebook;
+	color: #fff;
+  }
+  li:hover.social-icons-telegram a, &.social-icons-colored li.social-icons-telegram a {
+    background: $telegram;
+	color: #fff;
+  }
+  li:hover.social-icons-linkedin a, &.social-icons-colored li.social-icons-linkedin a {
+    background: $linkedin;
+	color: #fff;
+  }
+  li:hover.social-icons-rss a, &.social-icons-colored li.social-icons-rss a {
+    background: $rss;
+	color: #fff;
+  }
+  li:hover.social-icons-dribbble a, &.social-icons-colored li.social-icons-dribbble a {
+	background: $dribbble;
+	color: #fff;
+  }
+  li:hover.social-icons-google a, &.social-icons-colored li.social-icons-google a {
+    background: $google;
+	color: #fff;
+  }
+  li:hover.social-icons-pinterest a, &.social-icons-colored li.social-icons-pinterest a {
+    background: $pinterest;
+	color: #fff;
+  }
+  li:hover.social-icons-youtube a, &.social-icons-colored li.social-icons-youtube a {
+    background: $youtube;
+	color: #fff;
+  }
+  li:hover.social-icons-instagram a, &.social-icons-colored li.social-icons-instagram a {
+    background: $instagram;
+	color: #fff;
+  }
+  li:hover.social-icons-discord a, &.social-icons-colored li.social-icons-discord a {
+    background: $discord;
+	color: #fff;
+  }
+  li:hover.social-icons-skype a, &.social-icons-colored li.social-icons-skype a {
+    background: $skype;
+	color: #fff;
+  }
+  li:hover.social-icons-email a, &.social-icons-colored li.social-icons-email a {
+    background: $email;
+	color: #fff;
+  }
+  li:hover.social-icons-vk a, &.social-icons-colored li.social-icons-vk a {
+    background: $vk;
+	color: #fff;
+  }
+  li:hover.social-icons-xing a, &.social-icons-colored li.social-icons-xing a {
+    background: $xing;
+	color: #fff;
+  }
+  li:hover.social-icons-tumblr a, &.social-icons-colored li.social-icons-tumblr a {
+    background: $tumblr;
+	color: #fff;
+  }
+  li:hover.social-icons-reddit a, &.social-icons-colored li.social-icons-reddit a {
+    background: $reddit;
+	color: #fff;
+  }
+  li:hover.social-icons-delicious a, &.social-icons-colored li.social-icons-delicious a {
+    background: $delicious;
+	color: #fff;
+  }
+  li:hover.social-icons-stumbleupon a, &.social-icons-colored li.social-icons-stumbleupon a {
+    background: $stumbleupon;
+	color: #fff;
+  }
+  li:hover.social-icons-digg a, &.social-icons-colored li.social-icons-digg a {
+    background: $digg;
+	color: #fff;
+  }
+  li:hover.social-icons-blogger a, &.social-icons-colored li.social-icons-blogger a {
+    background: $blogger;
+	color: #fff;
+  }
+  li:hover.social-icons-flickr a, &.social-icons-colored li.social-icons-flickr a {
+    background: $flickr;
+	color: #fff;
+  }
+  li:hover.social-icons-vimeo a, &.social-icons-colored li.social-icons-vimeo a {
+    background: $vimeo;
+	color: #fff;
+  }
+  li:hover.social-icons-yahoo a, &.social-icons-colored li.social-icons-yahoo a {
+    background: $yahoo;
+	color: #fff;
+  }
+  li:hover.social-icons-apple a, &.social-icons-colored li.social-icons-apple a {
+    background: $appstore;
+	color: #fff;
+  }
+  li:hover.social-icons-github a, &.social-icons-colored li.social-icons-github a {
+    background: $github;
+	color: #fff;
+  }
+  &.social-icons-colored li {
+    &:hover a {
+      background: #d4d4d4;
+	  color: #333;
+    }
+  }
+}
+
+html:not([dir="rtl"]) .social-icons {
+  li {
+	&:first-child{
+	 margin-left:0px;
+	}
+	&:last-child{
+	 margin-right:0px;
+	}
+  }
+}
+html[dir="rtl"] .social-icons {
+  li {
+	&:first-child{
+	 margin-right:0px;
+	}
+	&:last-child{
+	 margin-left:0px;
+	}
+  }
+}
+
+
+/*=== 5.3 Back to Top ===*/
+#back-to-top {
+  position: fixed;
+  z-index: 1030;
+  display: none;
+  bottom: 8px;
+  right: 10px;
+  background-color: rgba(250, 250, 250, 0.2);
+  text-align:center;
+  color: #fff;
+  font-size: 16px;
+  width: 44px;
+  height: 44px;
+  line-height: 44px;
+  border-radius: 50%;
+  @include transition(all 0.3s ease-in-out);
+  @include box-shadow(0px 5px 15px rgba(0, 0, 0, 0.15));
+  &:hover {
+    background-color: $primary-color;
+	@include box-shadow(0px 5px 15px rgba(0, 0, 0, 0.25));
+	@include transition(all 0.3s ease-in-out);
+  }
+}
+
+html[dir="rtl"] body:not(.side-header-right) #back-to-top, html:not([dir="rtl"]).side-header-right #back-to-top {
+	left: 10px;
+	right: auto;
+}
+
+@include media-breakpoint-only(xs) {
+  #back-to-top {
+	z-index: 1029;
+	width: 36px;
+	height: 36px;
+	line-height: 36px;
+  }
+}
