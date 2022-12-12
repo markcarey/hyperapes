@@ -38,7 +38,7 @@ Hyper Apes is currently deployed to four testnets. You can mint on any chain and
 
 The contract is deployed to the same address on each of the above chains: `0x4674312E6c202662F78E72dF039e16f3AAB2ec3a`.
 
-The dapp can be found at https://hyperapes.club or ipfs://
+The dapp can be found at https://hyperapes.club or ipfs://QmdqUZqeLZNyBi7Lwu2wJZx3VDspTXHEqim3Exc5NTDxUV
 
 # Next Steps
 - find a co-founder to do Community Management
