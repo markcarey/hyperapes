@@ -2,7 +2,8 @@
 
 pragma solidity ^0.8.2;
 
-import {Router} from "@hyperlane-xyz/core/contracts/Router.sol";
+//import {Router} from "@hyperlane-xyz/core/contracts/Router.sol";
+import {ERC721Router} from "./libs/ERC721Router.sol";
 import {TypeCasts} from "@hyperlane-xyz/core/contracts/libs/TypeCasts.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721URIStorageUpgradeable.sol";
@@ -10,7 +11,7 @@ import "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721Burnab
 import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
-contract HyperNFT is Initializable, ERC721Upgradeable, ERC721URIStorageUpgradeable, ERC721BurnableUpgradeable, AccessControlUpgradeable, Router {
+contract HyperNFT is Initializable, ERC721Upgradeable, ERC721URIStorageUpgradeable, ERC721BurnableUpgradeable, AccessControlUpgradeable, ERC721Router {
     using TypeCasts for bytes32;
     using TypeCasts for address;
     uint public nextMintId;
@@ -21,6 +22,7 @@ contract HyperNFT is Initializable, ERC721Upgradeable, ERC721URIStorageUpgradeab
 
     function initialize(string memory _name, string memory _symbol, address _connectionManager, address _interchainGasPaymaster, uint _startMintId, uint _endMintId, address sender, uint32[] memory remoteDomains, string memory _contractURIHash) public initializer {
         __Router_initialize(_connectionManager, _interchainGasPaymaster);
+        __ERC721_init(_name, _symbol);
         nextMintId = _startMintId;
         maxMintId = _endMintId;
         contractURIHash = _contractURIHash;
@@ -28,7 +30,6 @@ contract HyperNFT is Initializable, ERC721Upgradeable, ERC721URIStorageUpgradeab
         _grantRole(MINTER_ROLE, sender);
         _grantRole(METADATA_ROLE, sender);
         for(uint i = 0; i < remoteDomains.length; i++) {
-            //this.enrollRemoteRouter(remoteDomains[i], address(this).addressToBytes32());
             _enrollRemoteRouter(remoteDomains[i], address(this).addressToBytes32());
         }
     }
@@ -44,7 +45,7 @@ contract HyperNFT is Initializable, ERC721Upgradeable, ERC721URIStorageUpgradeab
     }
 
     // @dev mint on this chain and immediate send it to the same address on a different chain
-    function mintAndSend(string memory uri, uint16 _dstChainId ) external payable {
+    function mintAndSend(string memory uri, uint32 domain ) external payable {
         require(nextMintId <= maxMintId, "HyperNFT: max mint limit reached");
 
         uint tokenId = nextMintId;
@@ -52,33 +53,42 @@ contract HyperNFT is Initializable, ERC721Upgradeable, ERC721URIStorageUpgradeab
 
         _safeMint(msg.sender, tokenId);
         _setTokenURI(tokenId, uri);
-        _send(msg.sender, _dstChainId, abi.encodePacked(msg.sender), tokenId, payable(msg.sender), address(0), "");
-    }
-
-    function evmEstimateSendFee(uint16 _dstChainId, address _to, uint _tokenId) public view returns (uint nativeFee, uint zroFee) {
-        bytes memory payload = abi.encode(abi.encodePacked(_to), _tokenId, this.tokenURI(_tokenId));
-        return lzEndpoint.estimateFees(_dstChainId, address(this), payload, false, "");
-    }
-    function evmEstimateMintAndSendFee(uint16 _dstChainId, address _to, string memory uri) public view returns (uint nativeFee, uint zroFee) {
-        bytes memory payload = abi.encode(abi.encodePacked(_to), 9999, uri);
-        return lzEndpoint.estimateFees(_dstChainId, address(this), payload, false, "");
+        _send(domain, msg.sender.addressToBytes32(), tokenId);
     }
 
     // @dev convenience method
-    function evmSend(address payable _from, uint16 _dstChainId, address _to, uint _tokenId) public payable {
-        _send(_from, _dstChainId, abi.encodePacked(_to), _tokenId, _from, address(0), "");
+    function evmSend(uint32 domain, address _to, uint _tokenId) public payable {
+         _send(domain, _to.addressToBytes32(), _tokenId);
     }
 
+    function _beforeSending(uint256 _tokenId) internal override {
+        require(ownerOf(_tokenId) == msg.sender, "!owner");
+        _burn(_tokenId);
+    }
 
-    function _creditTo(uint16, address _toAddress, uint _tokenId, string memory uri) internal {
-        require(!_exists(_tokenId) || (_exists(_tokenId) && ERC721Upgradeable.ownerOf(_tokenId) == address(this)));
-        if (!_exists(_tokenId)) {
-            _safeMint(_toAddress, _tokenId);
-            _setTokenURI(_tokenId, uri);
-        } else {
-            _transfer(address(this), _toAddress, _tokenId);
-            _setTokenURI(_tokenId, uri);
-        }
+    function _messagePayload(bytes32 _recipient, uint256 _tokenId) view internal override returns(bytes memory payload) {
+        payload = abi.encode(_recipient, _tokenId, this.tokenURI(_tokenId));
+    }
+
+    /**
+     * @dev Emitted on `_handle` when a transfer message is processed.
+     * @param origin The identifier of the origin chain.
+     * @param recipient The address of the recipient on the destination chain.
+     * @param tokenId The tokenId minted on the destination chain.
+     */
+    event ReceivedTransferRemote(
+        uint32 indexed origin,
+        bytes32 indexed recipient,
+        uint256 tokenId
+    );
+
+    function _receive(uint32 _origin, bytes calldata _payload) internal override {
+        (bytes32 toAddressBytes32, uint tokenId, string memory uri) = abi.decode(_payload, (bytes32, uint, string));
+        address recipient = toAddressBytes32.bytes32ToAddress();
+        require(!_exists(tokenId), "token already exists on this chain");
+        _safeMint(recipient, tokenId);
+        _setTokenURI(tokenId, uri);
+        emit ReceivedTransferRemote(_origin, toAddressBytes32, tokenId);
     }
 
     /**
