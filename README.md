@@ -27,6 +27,8 @@ Hyper Apes features:
 
 - *Using Mint Passes*. On the streamer chain only, you can use your mint pass (BANANA) tokens with the `mintWithPass()` function to mint special edition Hyper Apes. You need spend 1,000,000 BANANAS to mint with this function in the current Hyper Apes deployment. This _Streaming Mint Pass_ concept could be used for accruding mit passes for secondary or even partner NFT collections. When used to mint *limited* edition NFTs, this encourages the minting/collecting of multiple NFTs in the collection, in order to accelerate your *flowRate* of tokens per second, and might also lead to token liquidity, if there is demand to acquire the tokens.
 
+- *Cross Chain Registry*. As a bonus, the Streamer contract provides `ownerOf()` and `balanceOf()` functions that work like their ERC721 equivalents, but the responses _include the NFTs from all supported chains_. It does not matter which chain `tokenId` 420 is currently on, the Streamer contract will tell you the owner.
+
 # Mint a Hyper Ape Today
 ![Minted!](https://hyperapes.club/images/hyper-apes-minted.png)
 Hyper Apes is currently deployed to four testnets. You can mint on any chain and _jump_ your Ape to another, if desired:
