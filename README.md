@@ -33,9 +33,9 @@ Hyper Apes features:
 ![Minted!](https://hyperapes.club/images/hyper-apes-minted.png)
 Hyper Apes is currently deployed to four testnets. You can mint on any chain and _jump_ your Ape to another, if desired:
 
-- [Ethereum Goerli](https://goerli.etherscan.io/address/0x4674312E6c202662F78E72dF039e16f3AAB2ec3a) (minting #1-1000) [OpenSea](https://testnets.opensea.io/collection/hyper-apes-v62debfefr)
-- [Polygon Mumbai](https://mumbai.polygonscan.com/address/0x4674312E6c202662F78E72dF039e16f3AAB2ec3a) (minting #1001-2000) [OpenSea](https://testnets.opensea.io/collection/hyper-apes-eksbxp4tjj)
-- [Arbitrum Goerli](https://goerli.arbiscan.io/address/0x4674312E6c202662F78E72dF039e16f3AAB2ec3a) (minting #2001-3000) [OpenSea](https://testnets.opensea.io/collection/hyper-apes-jwtduusgn2)
+- [Ethereum Goerli](https://goerli.etherscan.io/address/0x4674312E6c202662F78E72dF039e16f3AAB2ec3a) (minting #1-1000) [OpenSea](https://testnets.opensea.io/collection/hyper-apes-goerli)
+- [Polygon Mumbai](https://mumbai.polygonscan.com/address/0x4674312E6c202662F78E72dF039e16f3AAB2ec3a) (minting #1001-2000) [OpenSea](https://testnets.opensea.io/collection/hyper-apes-mumbai)
+- [Arbitrum Goerli](https://goerli.arbiscan.io/address/0x4674312E6c202662F78E72dF039e16f3AAB2ec3a) (minting #2001-3000) [OpenSea](https://testnets.opensea.io/collection/hyper-apes-arbitrum-goerli)
 - [Moonbase Alpha](https://moonbase.moonscan.io/address/0x4674312E6c202662F78E72dF039e16f3AAB2ec3a) (minting #3001-4000)
 
 The contract is deployed to the same address on each of the above chains: `0x4674312E6c202662F78E72dF039e16f3AAB2ec3a`.
