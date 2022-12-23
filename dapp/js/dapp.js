@@ -180,10 +180,11 @@ async function connect(){
         console.log(accounts);
         const userChain = await ethereum.request({ method: 'eth_chainId' });
         if (web3.utils.hexToNumber(userChain) != chain) {
-            await ethereum.request({
-                method: 'wallet_switchEthereumChain',
-                params: [{ chainId: web3.utils.toHex(addr[chain].evmChainId) }],
-            });
+            //await ethereum.request({
+            //    method: 'wallet_switchEthereumChain',
+            //    params: [{ chainId: web3.utils.toHex(addr[chain].evmChainId) }],
+            //});
+            await switchChain(addr[chain].evmChainId);
         }
         $(".address").text(abbrAddress());
         $("#offcanvas").find("button").click();
